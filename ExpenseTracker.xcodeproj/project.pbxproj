@@ -55,6 +55,9 @@
 		E96151422780F823000EA00E /* ExpenseTracker */ = {
 			isa = PBXGroup;
 			children = (
+				E961515B2780F888000EA00E /* Models */,
+				E961515A2780F87F000EA00E /* ViewModels */,
+				E96151592780F876000EA00E /* Views */,
 				E96151432780F823000EA00E /* ExpenseTrackerApp.swift */,
 				E96151452780F823000EA00E /* ContentView.swift */,
 				E96151472780F824000EA00E /* Assets.xcassets */,
@@ -71,6 +74,27 @@
 				E961514A2780F824000EA00E /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		E96151592780F876000EA00E /* Views */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		E961515A2780F87F000EA00E /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		E961515B2780F888000EA00E /* Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
