@@ -6,11 +6,12 @@
     </entity>
     <entity name="ExpenseEntity" representedClassName="ExpenseEntity" syncable="YES" codeGenerationType="class">
         <attribute name="date" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="money" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
         <attribute name="title" optional="YES" attributeType="String"/>
         <relationship name="category" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="CategoryEntity"/>
     </entity>
     <elements>
         <element name="CategoryEntity" positionX="-63" positionY="-18" width="128" height="59"/>
-        <element name="ExpenseEntity" positionX="-63" positionY="-9" width="128" height="74"/>
+        <element name="ExpenseEntity" positionX="-63" positionY="-9" width="128" height="89"/>
     </elements>
 </model>

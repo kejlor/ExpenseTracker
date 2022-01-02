@@ -14,6 +14,7 @@
 		E961514D2780F824000EA00E /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = E961514C2780F824000EA00E /* Persistence.swift */; };
 		E96151502780F824000EA00E /* ExpenseTracker.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = E961514E2780F824000EA00E /* ExpenseTracker.xcdatamodeld */; };
 		E961515E2781E159000EA00E /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E961515D2781E159000EA00E /* CoreDataManager.swift */; };
+		E96151602781E2C5000EA00E /* CoreDataViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E961515F2781E2C4000EA00E /* CoreDataViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -25,6 +26,7 @@
 		E961514C2780F824000EA00E /* Persistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Persistence.swift; sourceTree = "<group>"; };
 		E961514F2780F824000EA00E /* ExpenseTracker.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = ExpenseTracker.xcdatamodel; sourceTree = "<group>"; };
 		E961515D2781E159000EA00E /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
+		E961515F2781E2C4000EA00E /* CoreDataViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -89,6 +91,7 @@
 		E961515A2780F87F000EA00E /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
+				E961515F2781E2C4000EA00E /* CoreDataViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -179,6 +182,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E961514D2780F824000EA00E /* Persistence.swift in Sources */,
+				E96151602781E2C5000EA00E /* CoreDataViewModel.swift in Sources */,
 				E96151462780F823000EA00E /* ContentView.swift in Sources */,
 				E96151442780F823000EA00E /* ExpenseTrackerApp.swift in Sources */,
 				E961515E2781E159000EA00E /* CoreDataManager.swift in Sources */,
