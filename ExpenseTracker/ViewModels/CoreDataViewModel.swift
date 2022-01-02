@@ -7,6 +7,7 @@
 
 import Foundation
 import CoreData
+import SwiftUI
 
 class CoreDataViewModel: ObservableObject {
     let manager = CoreDataManager.instance
@@ -43,15 +44,42 @@ class CoreDataViewModel: ObservableObject {
     func addCategory() {
         let newCategory = CategoryEntity(context: manager.context)
         newCategory.title = "Food"
+        if !categories.isEmpty {
+            categories.append(newCategory)
+        }
         save()
+        print(categories.count)
+        print(expenses.count)
     }
     
     func addExpense() {
         let newExpense = ExpenseEntity(context: manager.context)
-        newExpense.title = "Pizza"
-        newExpense.money = 10.50
+        newExpense.title = "Book"
+        newExpense.money = 9.99
         newExpense.date = Date.now
         newExpense.category = categories[0]
+        save()
+    }
+    
+    func deleteCategory() {
+        let category = categories[0]
+        manager.context.delete(category)
+        save()
+    }
+    
+    func deleteExpense() {
+        let expense = expenses[0]
+        manager.context.delete(expense)
+        save()
+    }
+    
+    func deleteAllData() {
+        for category in categories {
+            manager.context.delete(category)
+        }
+        for expense in expenses {
+            manager.context.delete(expense)
+        }
         save()
     }
     

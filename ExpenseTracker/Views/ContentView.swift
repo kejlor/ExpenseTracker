@@ -27,12 +27,19 @@ struct ContentView: View {
         }
         Button {
             vm.addCategory()
-//            vm.addExpense()
-            vm.save()
+        } label: {
+            Text("Add category")
+        }
+        Button {
+            vm.addExpense()
         } label: {
             Text("Add expense")
         }
-
+        Button {
+            vm.deleteAllData()
+        } label: {
+            Text("Delete All")
+        }
     }
 }
 
@@ -45,7 +52,6 @@ private let itemFormatter: DateFormatter = {
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-//        ContentView().environment(\.managedObjectContext, PersistenceController.preview.container.viewContext)
         ContentView()
     }
 }
