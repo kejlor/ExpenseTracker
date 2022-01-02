@@ -18,9 +18,11 @@ struct ContentView: View {
                 Text(category.title ?? "unknown title")
                 
                 ForEach(vm.expenses, id: \.self) { expense in
-                    HStack {
-                        Text(expense.title ?? "unknown expense")
-                        Text("\(expense.money)")
+                    if expense.category == category {
+                        HStack {
+                            Text(expense.title ?? "unknown expense")
+                            Text("\(expense.money)")
+                        }
                     }
                 }
             }
