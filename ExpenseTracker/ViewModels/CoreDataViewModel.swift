@@ -13,7 +13,10 @@ class CoreDataViewModel: ObservableObject {
     @Published var categories: [CategoryEntity] = []
     @Published var expenses: [ExpenseEntity] = []
     
-    
+    init() {
+        getCategories()
+        getExpenses()
+    }
     
     func getCategories() {
         let request = NSFetchRequest<CategoryEntity>(entityName: "CategoryEntity")
