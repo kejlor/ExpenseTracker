@@ -16,6 +16,16 @@ struct EditExpenseView: View {
     @State private var selectedDate = Date()
     @State private var selectedCategory = CategoryEntity()
     
+    var moneyTextFieldProxy: Binding<String> {
+        Binding<String>(
+            get: { String(format: "%.02f", Double(self.moneyTextField)) },
+            set: {
+                if let value = NumberFormatter().number(from: $0) {
+                    self.moneyTextField = value.doubleValue
+                }
+            }
+        )
+    }
     var body: some View {
         VStack {
             Text("Expense title:")
@@ -24,7 +34,7 @@ struct EditExpenseView: View {
                     titleTextField = expense.title ?? "unknown"
                 }
             Text("Money spent:")
-            TextField("Type book pages count here...", value: $moneyTextField, formatter: NumberFormatter())
+            TextField("Number", text: moneyTextFieldProxy)
                 .keyboardType(.numberPad).onAppear {
                     moneyTextField = expense.money
                 }
