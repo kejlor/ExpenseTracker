@@ -7,12 +7,19 @@
 
 import Foundation
 import CoreData
-import SwiftUI
 
 class CoreDataViewModel: ObservableObject {
     let manager = CoreDataManager.instance
-    @Published var categories: [CategoryEntity] = []
-    @Published var expenses: [ExpenseEntity] = []
+    @Published var categories: [CategoryEntity] = [] {
+        didSet {
+            save()
+        }
+    }
+    @Published var expenses: [ExpenseEntity] = [] {
+        didSet {
+            save()
+        }
+    }
     
     init() {
         getCategories()
@@ -40,7 +47,7 @@ class CoreDataViewModel: ObservableObject {
             print("❌ Error fetching. \(error.localizedDescription)")
         }
     }
-    
+        
     func addCategory(title: String) {
         let newCategory = CategoryEntity(context: manager.context)
         newCategory.title = title
@@ -63,6 +70,7 @@ class CoreDataViewModel: ObservableObject {
     
     func updateCategory(entity: CategoryEntity, title: String) {
         entity.title = title
+        getCategories()
         save()
     }
     
@@ -71,18 +79,17 @@ class CoreDataViewModel: ObservableObject {
         entity.money = money
         entity.date = date
         entity.category = category
+        getCategories()
         save()
     }
     
-    func deleteCategory() {
-        let category = categories[0]
-        manager.context.delete(category)
+    func deleteCategory(indexSet: IndexSet) {
+        categories.remove(atOffsets: indexSet)
         save()
     }
     
-    func deleteExpense() {
-        let expense = expenses[0]
-        manager.context.delete(expense)
+    func deleteExpense(indexSet: IndexSet) {
+        expenses.remove(atOffsets: indexSet)
         save()
     }
     
@@ -98,7 +105,5 @@ class CoreDataViewModel: ObservableObject {
     
     func save() {
         self.manager.save()
-        self.getCategories()
-        self.getExpenses()
     }
 }
