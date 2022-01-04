@@ -27,9 +27,9 @@ struct ExpensesView: View {
                             }
                         }
                     }
-//                    .onDelete(perform: vm.deleteExpense())
+                    .onDelete(perform: vm.deleteExpense)
                 }
-//                .onDelete(perform: vm.deleteCategory())
+                .onDelete(perform: vm.deleteCategory)
             }
         }
         .navigationTitle("Expenses Tracker 💸")
