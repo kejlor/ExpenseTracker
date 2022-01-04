@@ -11,17 +11,28 @@ struct ExpenseDetailView: View {
     
     let expense: ExpenseEntity
     @EnvironmentObject var vm: CoreDataViewModel
+    @State private var isEditing = false
     
     var body: some View {
-        VStack {
-            Text("Expense title:")
-            Text(expense.title ?? "unknown")
-            Text("Money spent:")
-            Text("\(expense.money)")
-            Text("Date of purchase:")
-            Text(expense.date ?? Date(), style: .date)
-            Text("Category:")
-            Text("\(expense.category?.title ?? "unknown")")
+        NavigationView {
+            VStack {
+                Text("Expense title:")
+                Text(expense.title ?? "unknown")
+                Text("Money spent:")
+                Text("\(expense.money)")
+                Text("Date of purchase:")
+                Text(expense.date ?? Date(), style: .date)
+                Text("Category:")
+                Text("\(expense.category?.title ?? "unknown")")
+            }
+        }
+        .navigationBarItems(trailing: Button(action: {
+            isEditing.toggle()
+        }, label: {
+            Text("Edit".uppercased())
+        }))
+        .sheet(isPresented: $isEditing) {
+            UpdateExpenseView(expense: expense, isEditing: $isEditing)
         }
     }
 }
