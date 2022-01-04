@@ -9,7 +9,8 @@ import SwiftUI
 
 struct AddExpenseView: View {
     
-    @StateObject var vm = CoreDataViewModel()
+    @Environment(\.presentationMode) var presentationMode
+    @EnvironmentObject var vm: CoreDataViewModel
     @State private var textFieldText = ""
     @State private var textFieldMoney = 0.0
     @State private var selectedDate = Date()
@@ -35,7 +36,6 @@ struct AddExpenseView: View {
             } label: {
                 Text("Add new expense")
             }
-
         }
     }
 }
