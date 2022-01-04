@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct UpdateExpenseView: View {
+struct EditExpenseView: View {
     let expense: ExpenseEntity
     @EnvironmentObject var vm: CoreDataViewModel
     @Binding var isEditing: Bool
@@ -42,7 +42,7 @@ struct UpdateExpenseView: View {
                 selectedCategory = expense.category ?? CategoryEntity()
             }
             Button {
-                vm.updateExpense(entity: expense, title: titleTextField, money: moneyTextField, date: selectedDate, category: selectedCategory)
+                vm.editExpense(entity: expense, title: titleTextField, money: moneyTextField, date: selectedDate, category: selectedCategory)
                 vm.getExpenses()
                 isEditing.toggle()
             } label: {
@@ -52,9 +52,9 @@ struct UpdateExpenseView: View {
     }
 }
 
-struct UpdateExpenseView_Previews: PreviewProvider {
+struct EditExpenseView_Previews: PreviewProvider {
     static var expense = ExpenseEntity()
     static var previews: some View {
-        UpdateExpenseView(expense: expense, isEditing: .constant(true))
+        EditExpenseView(expense: expense, isEditing: .constant(true))
     }
 }

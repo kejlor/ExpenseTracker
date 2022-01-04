@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct UpdateCategoryView: View {
+struct EditCategoryView: View {
     
     let category: CategoryEntity
     @EnvironmentObject var vm: CoreDataViewModel
@@ -27,7 +27,7 @@ struct UpdateCategoryView: View {
         }
 
         Button {
-            vm.updateCategory(entity: category, title: titleTextField)
+            vm.editCategory(entity: category, title: titleTextField)
             vm.getCategories()
             isEditing.toggle()
         } label: {
@@ -37,9 +37,9 @@ struct UpdateCategoryView: View {
     }
 }
 
-struct UpdateCategoryView_Previews: PreviewProvider {
+struct EditCategoryView_Previews: PreviewProvider {
     static var category = CategoryEntity()
     static var previews: some View {
-        UpdateCategoryView(category: category, isEditing: .constant(true))
+        EditCategoryView(category: category, isEditing: .constant(true))
     }
 }

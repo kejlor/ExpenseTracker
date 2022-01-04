@@ -32,7 +32,7 @@ struct ExpenseDetailView: View {
             Text("Edit".uppercased())
         }))
         .sheet(isPresented: $isEditing) {
-            UpdateExpenseView(expense: expense, isEditing: $isEditing)
+            EditExpenseView(expense: expense, isEditing: $isEditing)
         }
     }
 }

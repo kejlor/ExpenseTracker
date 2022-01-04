@@ -9,8 +9,8 @@
 /* Begin PBXBuildFile section */
 		E95C329827847EE2007AC000 /* AddCategoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E95C329727847EE2007AC000 /* AddCategoryView.swift */; };
 		E95C329A27847EEB007AC000 /* AddExpenseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E95C329927847EEB007AC000 /* AddExpenseView.swift */; };
-		E95C329C27847EF7007AC000 /* UpdateCategoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E95C329B27847EF7007AC000 /* UpdateCategoryView.swift */; };
-		E95C329E27847F01007AC000 /* UpdateExpenseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E95C329D27847F01007AC000 /* UpdateExpenseView.swift */; };
+		E95C329C27847EF7007AC000 /* EditCategoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E95C329B27847EF7007AC000 /* EditCategoryView.swift */; };
+		E95C329E27847F01007AC000 /* EditExpenseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E95C329D27847F01007AC000 /* EditExpenseView.swift */; };
 		E95C32A027848FE1007AC000 /* CategoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E95C329F27848FE1007AC000 /* CategoryView.swift */; };
 		E96151442780F823000EA00E /* ExpenseTrackerApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = E96151432780F823000EA00E /* ExpenseTrackerApp.swift */; };
 		E96151462780F823000EA00E /* ExpensesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E96151452780F823000EA00E /* ExpensesView.swift */; };
@@ -26,8 +26,8 @@
 /* Begin PBXFileReference section */
 		E95C329727847EE2007AC000 /* AddCategoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddCategoryView.swift; sourceTree = "<group>"; };
 		E95C329927847EEB007AC000 /* AddExpenseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddExpenseView.swift; sourceTree = "<group>"; };
-		E95C329B27847EF7007AC000 /* UpdateCategoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateCategoryView.swift; sourceTree = "<group>"; };
-		E95C329D27847F01007AC000 /* UpdateExpenseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateExpenseView.swift; sourceTree = "<group>"; };
+		E95C329B27847EF7007AC000 /* EditCategoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditCategoryView.swift; sourceTree = "<group>"; };
+		E95C329D27847F01007AC000 /* EditExpenseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditExpenseView.swift; sourceTree = "<group>"; };
 		E95C329F27848FE1007AC000 /* CategoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryView.swift; sourceTree = "<group>"; };
 		E96151402780F823000EA00E /* ExpenseTracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ExpenseTracker.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E96151432780F823000EA00E /* ExpenseTrackerApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpenseTrackerApp.swift; sourceTree = "<group>"; };
@@ -97,8 +97,8 @@
 				E96151452780F823000EA00E /* ExpensesView.swift */,
 				E95C329727847EE2007AC000 /* AddCategoryView.swift */,
 				E95C329927847EEB007AC000 /* AddExpenseView.swift */,
-				E95C329B27847EF7007AC000 /* UpdateCategoryView.swift */,
-				E95C329D27847F01007AC000 /* UpdateExpenseView.swift */,
+				E95C329B27847EF7007AC000 /* EditCategoryView.swift */,
+				E95C329D27847F01007AC000 /* EditExpenseView.swift */,
 				E95C329F27848FE1007AC000 /* CategoryView.swift */,
 				E9EDBB572784923700013554 /* ExpenseView.swift */,
 				E9EDBB59278496DA00013554 /* ExpenseDetailView.swift */,
@@ -202,7 +202,7 @@
 				E9EDBB5A278496DA00013554 /* ExpenseDetailView.swift in Sources */,
 				E95C329827847EE2007AC000 /* AddCategoryView.swift in Sources */,
 				E96151602781E2C5000EA00E /* CoreDataViewModel.swift in Sources */,
-				E95C329E27847F01007AC000 /* UpdateExpenseView.swift in Sources */,
+				E95C329E27847F01007AC000 /* EditExpenseView.swift in Sources */,
 				E96151462780F823000EA00E /* ExpensesView.swift in Sources */,
 				E9EDBB582784923700013554 /* ExpenseView.swift in Sources */,
 				E95C32A027848FE1007AC000 /* CategoryView.swift in Sources */,
@@ -210,7 +210,7 @@
 				E95C329A27847EEB007AC000 /* AddExpenseView.swift in Sources */,
 				E961515E2781E159000EA00E /* CoreDataManager.swift in Sources */,
 				E96151502780F824000EA00E /* ExpenseTracker.xcdatamodeld in Sources */,
-				E95C329C27847EF7007AC000 /* UpdateCategoryView.swift in Sources */,
+				E95C329C27847EF7007AC000 /* EditCategoryView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

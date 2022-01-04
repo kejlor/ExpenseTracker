@@ -23,7 +23,7 @@ struct CategoryView: View {
             Text("Edit".uppercased())
         }))
         .sheet(isPresented: $isEditing) {
-            UpdateCategoryView(category: category, isEditing: $isEditing)
+            EditCategoryView(category: category, isEditing: $isEditing)
         }
     }
 }
