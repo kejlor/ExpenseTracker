@@ -8,7 +8,7 @@
 import SwiftUI
 import CoreData
 
-struct ContentView: View {
+struct ExpensesView: View {
     
     @StateObject var vm = CoreDataViewModel()
     
@@ -42,8 +42,8 @@ private let itemFormatter: DateFormatter = {
     return formatter
 }()
 
-struct ContentView_Previews: PreviewProvider {
+struct ExpensesView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView()
+        ExpensesView()
     }
 }
