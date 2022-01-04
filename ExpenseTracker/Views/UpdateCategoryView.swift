@@ -8,13 +8,29 @@
 import SwiftUI
 
 struct UpdateCategoryView: View {
+    
+    let category: CategoryEntity
+    @EnvironmentObject var vm: CoreDataViewModel
+    @State private var titleTextField = ""
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        HStack {
+            Text("Old title: ")
+            Text(category.title ?? "unknown")
+        }
+        TextField("New category title...", text: $titleTextField)
+        Button {
+            vm.updateCategory(entity: category, title: titleTextField)
+        } label: {
+            Text("Update")
+        }
+
     }
 }
 
 struct UpdateCategoryView_Previews: PreviewProvider {
+    static var category = CategoryEntity()
     static var previews: some View {
-        UpdateCategoryView()
+        UpdateCategoryView(category: category)
     }
 }
