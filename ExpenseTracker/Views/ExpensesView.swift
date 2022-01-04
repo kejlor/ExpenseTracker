@@ -10,23 +10,33 @@ import CoreData
 
 struct ExpensesView: View {
     
-    @StateObject var vm = CoreDataViewModel()
+    @EnvironmentObject var vm: CoreDataViewModel
     
     var body: some View {
-        List {
-            ForEach(vm.categories, id: \.self) { category in
-                Text(category.title ?? "unknown title")
-                
-                ForEach(vm.expenses, id: \.self) { expense in
-                    if expense.category == category {
-                        HStack {
-                            Text(expense.title ?? "unknown expense")
-                            Text("\(expense.money)")
+        ZStack {
+            List {
+                ForEach(vm.categories, id: \.self) { category in
+                    NavigationLink(destination: CategoryView(category: category)) {
+                        CategoryView(category: category)
+                    }
+                    
+                    ForEach(vm.expenses, id: \.self) { expense in
+                        if expense.category == category {
+                            NavigationLink(destination: ExpenseDetailView(expense: expense)) {
+                                ExpenseView(expense: expense)
+                            }
                         }
                     }
+//                    .onDelete(perform: vm.deleteExpense())
                 }
+//                .onDelete(perform: vm.deleteCategory())
             }
         }
+        .navigationTitle("Expenses Tracker 💸")
+        .navigationBarItems(
+            leading: EditButton(),
+            trailing: NavigationLink("Add", destination: AddCategoryView()))
+        
         Button {
             vm.deleteAllData()
         } label: {
