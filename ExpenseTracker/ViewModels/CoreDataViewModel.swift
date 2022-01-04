@@ -61,6 +61,19 @@ class CoreDataViewModel: ObservableObject {
         save()
     }
     
+    func updateCategory(entity: CategoryEntity, title: String) {
+        entity.title = title
+        save()
+    }
+    
+    func updateExpense(entity: ExpenseEntity, title: String, money: Double, date: Date, category: CategoryEntity) {
+        entity.title = title
+        entity.money = money
+        entity.date = date
+        entity.category = category
+        save()
+    }
+    
     func deleteCategory() {
         let category = categories[0]
         manager.context.delete(category)
