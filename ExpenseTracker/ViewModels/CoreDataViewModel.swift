@@ -41,9 +41,9 @@ class CoreDataViewModel: ObservableObject {
         }
     }
     
-    func addCategory() {
+    func addCategory(title: String) {
         let newCategory = CategoryEntity(context: manager.context)
-        newCategory.title = "Rent"
+        newCategory.title = title
         if !categories.isEmpty {
             categories.append(newCategory)
         }
@@ -52,12 +52,14 @@ class CoreDataViewModel: ObservableObject {
         print(expenses.count)
     }
     
-    func addExpense() {
+    func addExpense(title: String, money: Double, date: Date, category: CategoryEntity) {
         let newExpense = ExpenseEntity(context: manager.context)
-        newExpense.title = "Kebab"
-        newExpense.money = 3.33
-        newExpense.date = Date.now
-        newExpense.category = categories[1]
+        newExpense.title = title
+        newExpense.money = money
+        newExpense.date = date
+        if !categories.isEmpty {
+            newExpense.category = category
+        }
         save()
     }
     
