@@ -16,7 +16,7 @@ struct EditExpenseView: View {
     @State private var selectedDate = Date()
     @State private var selectedCategory = CategoryEntity()
     
-    var moneyTextFieldProxy: Binding<String> {
+    private var moneyTextFieldProxy: Binding<String> {
         Binding<String>(
             get: { String(format: "%.02f", Double(self.moneyTextField)) },
             set: {
