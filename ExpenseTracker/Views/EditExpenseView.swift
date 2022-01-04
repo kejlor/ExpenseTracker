@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct EditExpenseView: View {
+    
     let expense: ExpenseEntity
     @EnvironmentObject var vm: CoreDataViewModel
     @Binding var isEditing: Bool
@@ -26,6 +27,7 @@ struct EditExpenseView: View {
             }
         )
     }
+    
     var body: some View {
         VStack {
             Text("Expense title:")

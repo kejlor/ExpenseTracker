@@ -9,6 +9,7 @@ import Foundation
 import CoreData
 
 class CoreDataManager {
+    
     static let instance = CoreDataManager()
     let container: NSPersistentContainer
     let context: NSManagedObjectContext

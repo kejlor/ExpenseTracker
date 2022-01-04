@@ -25,7 +25,7 @@ struct EditCategoryView: View {
                     titleTextField = category.title ?? "unknown"
                 }
         }
-
+        
         Button {
             vm.editCategory(entity: category, title: titleTextField)
             vm.getCategories()
@@ -33,7 +33,6 @@ struct EditCategoryView: View {
         } label: {
             Text("Update")
         }
-
     }
 }
 

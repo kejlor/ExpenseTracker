@@ -9,6 +9,7 @@ import Foundation
 import CoreData
 
 class CoreDataViewModel: ObservableObject {
+    
     let manager = CoreDataManager.instance
     @Published var categories: [CategoryEntity] = [] {
         didSet {
@@ -47,7 +48,7 @@ class CoreDataViewModel: ObservableObject {
             print("❌ Error fetching. \(error.localizedDescription)")
         }
     }
-        
+    
     func addCategory(title: String) {
         let newCategory = CategoryEntity(context: manager.context)
         newCategory.title = title
