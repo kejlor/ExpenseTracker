@@ -13,13 +13,15 @@ struct AddCategoryView: View {
     @State private var textFieldText = ""
     
     var body: some View {
-        TextField("Write category description here...", text: $textFieldText)
-        Button {
-            vm.addCategory(title: textFieldText)
-        } label: {
-            Text("Add")
+        VStack {
+            Text("Category title:")
+            TextField("Write category description here...", text: $textFieldText)
+            Button {
+                vm.addCategory(title: textFieldText)
+            } label: {
+                Text("Add")
+            }
         }
-
     }
 }
 

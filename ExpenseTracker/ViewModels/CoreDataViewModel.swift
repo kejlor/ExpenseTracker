@@ -48,8 +48,6 @@ class CoreDataViewModel: ObservableObject {
             categories.append(newCategory)
         }
         save()
-        print(categories.count)
-        print(expenses.count)
     }
     
     func addExpense(title: String, money: Double, date: Date, category: CategoryEntity) {
