@@ -16,7 +16,7 @@ struct ExpensesView: View {
         ZStack {
             List {
                 ForEach(vm.categories, id: \.self) { category in
-                    NavigationLink(destination: CategoryView(category: category)) {
+                    NavigationLink(destination: CategoryDetailView(category: category)) {
                         CategoryView(category: category)
                     }
                     
