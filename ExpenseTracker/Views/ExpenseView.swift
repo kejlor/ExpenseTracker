@@ -15,8 +15,10 @@ struct ExpenseView: View {
     var body: some View {
         HStack {
             Text(expense.title ?? "unknown")
-            Text("💵 \(expense.money)")
+            Spacer()
+            Text("💵 \(expense.money, specifier: "%.2f")")
         }
+        .font(.body)
     }
 }
 

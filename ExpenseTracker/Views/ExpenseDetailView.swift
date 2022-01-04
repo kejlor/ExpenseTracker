@@ -19,7 +19,7 @@ struct ExpenseDetailView: View {
                 Text("Expense title:")
                 Text(expense.title ?? "unknown")
                 Text("Money spent:")
-                Text("\(expense.money)")
+                Text("\(expense.money, specifier: "%.2f")")
                 Text("Date of purchase:")
                 Text(expense.date ?? Date(), style: .date)
                 Text("Category:")
