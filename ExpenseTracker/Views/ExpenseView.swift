@@ -14,10 +14,8 @@ struct ExpenseView: View {
     
     var body: some View {
         HStack {
-            Text("Expense title:")
             Text(expense.title ?? "unknown")
-            Text("Money spent:")
-            Text("\(expense.money)")
+            Text("💵 \(expense.money)")
         }
     }
 }
