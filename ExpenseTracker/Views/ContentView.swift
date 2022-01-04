@@ -28,16 +28,6 @@ struct ContentView: View {
             }
         }
         Button {
-            vm.addCategory()
-        } label: {
-            Text("Add category")
-        }
-        Button {
-            vm.addExpense()
-        } label: {
-            Text("Add expense")
-        }
-        Button {
             vm.deleteAllData()
         } label: {
             Text("Delete All")

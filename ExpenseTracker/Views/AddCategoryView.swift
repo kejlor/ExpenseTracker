@@ -8,8 +8,18 @@
 import SwiftUI
 
 struct AddCategoryView: View {
+    
+    @StateObject var vm = CoreDataViewModel()
+    @State private var textFieldText = ""
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        TextField("Write category description here...", text: $textFieldText)
+        Button {
+            vm.addCategory(title: textFieldText)
+        } label: {
+            Text("Add")
+        }
+
     }
 }
 
