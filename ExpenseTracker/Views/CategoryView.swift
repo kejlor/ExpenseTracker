@@ -11,9 +11,20 @@ struct CategoryView: View {
     
     let category: CategoryEntity
     @EnvironmentObject var vm: CoreDataViewModel
+    @State private var isEditing = false
     
     var body: some View {
-        Text(category.title ?? "unknown")
+        NavigationView {
+            Text(category.title ?? "unknown")
+        }
+        .navigationBarItems(trailing: Button(action: {
+            isEditing.toggle()
+        }, label: {
+            Text("Edit".uppercased())
+        }))
+        .sheet(isPresented: $isEditing) {
+            UpdateCategoryView(category: category, isEditing: $isEditing)
+        }
     }
 }
 
