@@ -11,16 +11,25 @@ struct UpdateCategoryView: View {
     
     let category: CategoryEntity
     @EnvironmentObject var vm: CoreDataViewModel
+    @Binding var isEditing: Bool
     @State private var titleTextField = ""
     
     var body: some View {
-        HStack {
-            Text("Old title: ")
-            Text(category.title ?? "unknown")
+        VStack {
+            HStack {
+                Text("Old title: ")
+                Text(category.title ?? "unknown")
+            }
+            TextField("New category title...", text: $titleTextField)
+                .onAppear {
+                    titleTextField = category.title ?? "unknown"
+                }
         }
-        TextField("New category title...", text: $titleTextField)
+
         Button {
             vm.updateCategory(entity: category, title: titleTextField)
+            vm.getCategories()
+            isEditing.toggle()
         } label: {
             Text("Update")
         }
@@ -31,6 +40,6 @@ struct UpdateCategoryView: View {
 struct UpdateCategoryView_Previews: PreviewProvider {
     static var category = CategoryEntity()
     static var previews: some View {
-        UpdateCategoryView(category: category)
+        UpdateCategoryView(category: category, isEditing: .constant(true))
     }
 }
