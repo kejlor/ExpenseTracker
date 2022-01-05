@@ -9,7 +9,6 @@ import SwiftUI
 
 struct AddCategoryView: View {
     
-    @Environment(\.presentationMode) var presentationMode
     @EnvironmentObject var vm: CoreDataViewModel
     @State private var textFieldText = ""
     
