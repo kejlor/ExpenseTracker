@@ -9,7 +9,6 @@ import SwiftUI
 
 struct AddExpenseView: View {
     
-    @Environment(\.presentationMode) var presentationMode
     @EnvironmentObject var vm: CoreDataViewModel
     @State private var titleTextField = ""
     @State private var moneyTextField = 0.0
