@@ -11,12 +11,20 @@ import CoreData
 class CoreDataViewModel: ObservableObject {
     
     let manager = CoreDataManager.instance
+    
     @Published var categories: [CategoryEntity] = [] {
         didSet {
             save()
         }
     }
+    
     @Published var expenses: [ExpenseEntity] = [] {
+        didSet {
+            save()
+        }
+    }
+    
+    @Published var costs: [Double] = [] {
         didSet {
             save()
         }
@@ -25,6 +33,7 @@ class CoreDataViewModel: ObservableObject {
     init() {
         getCategories()
         getExpenses()
+        getAllCosts()
     }
     
     func getCategories() {
@@ -55,6 +64,12 @@ class CoreDataViewModel: ObservableObject {
         if !categories.isEmpty {
             categories.append(newCategory)
         }
+        do {
+            try manager.context.save()
+        } catch {
+            let nsError = error as NSError
+            fatalError("Unresolved error \(nsError), \(nsError.userInfo)")
+        }
         save()
     }
     
@@ -65,6 +80,12 @@ class CoreDataViewModel: ObservableObject {
         newExpense.date = date
         if !categories.isEmpty {
             newExpense.category = category
+        }
+        do {
+            try manager.context.save()
+        } catch {
+            let nsError = error as NSError
+            fatalError("Unresolved error \(nsError), \(nsError.userInfo)")
         }
         save()
     }
@@ -85,11 +106,17 @@ class CoreDataViewModel: ObservableObject {
     }
     
     func deleteCategory(indexSet: IndexSet) {
+        guard let index = indexSet.first else { return }
+        let entity = categories[index]
+        manager.container.viewContext.delete(entity)
         categories.remove(atOffsets: indexSet)
         save()
     }
     
     func deleteExpense(indexSet: IndexSet) {
+        guard let index = indexSet.first else { return }
+        let entity = expenses[index]
+        manager.container.viewContext.delete(entity)
         expenses.remove(atOffsets: indexSet)
         save()
     }
@@ -97,14 +124,30 @@ class CoreDataViewModel: ObservableObject {
     func deleteAllData() {
         for category in categories {
             manager.context.delete(category)
+            manager.container.viewContext.delete(category)
         }
         for expense in expenses {
             manager.context.delete(expense)
+            manager.container.viewContext.delete(expense)
         }
         save()
     }
     
     func save() {
         self.manager.save()
+    }
+    
+    func getAllCosts() {
+        for expense in expenses {
+            costs.append(expense.money)
+        }
+    }
+    
+    func returnCostsValue() -> Double {
+        var moneySpent = 0.0
+        for cost in costs {
+            moneySpent += cost
+        }
+        return moneySpent
     }
 }
