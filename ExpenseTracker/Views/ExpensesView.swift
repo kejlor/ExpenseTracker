@@ -6,41 +6,42 @@
 //
 
 import SwiftUI
-import CoreData
 
 struct ExpensesView: View {
     
     @EnvironmentObject var vm: CoreDataViewModel
     
     var body: some View {
-        ZStack {
-            List {
-                ForEach(vm.categories, id: \.self) { category in
-                    NavigationLink(destination: CategoryDetailView(category: category)) {
-                        CategoryView(category: category)
-                    }
-                    
-                    ForEach(vm.expenses, id: \.self) { expense in
-                        if expense.category == category {
-                            NavigationLink(destination: ExpenseDetailView(expense: expense)) {
-                                ExpenseView(expense: expense)
+        VStack {
+            ZStack {
+                List {
+                    ForEach(vm.categories, id: \.self) { category in
+                        NavigationLink(destination: CategoryDetailView(category: category)) {
+                            CategoryView(category: category)
+                        }
+                        
+                        ForEach(vm.expenses, id: \.self) { expense in
+                            if expense.category == category {
+                                NavigationLink(destination: ExpenseDetailView(expense: expense)) {
+                                    ExpenseView(expense: expense)
+                                }
                             }
                         }
+                        .onDelete(perform: vm.deleteExpense)
                     }
-                    .onDelete(perform: vm.deleteExpense)
+                    .onDelete(perform: vm.deleteCategory)
                 }
-                .onDelete(perform: vm.deleteCategory)
             }
-        }
-        .navigationTitle("Expenses Tracker 💸")
-        .navigationBarItems(
-            leading: EditButton(),
-            trailing: NavigationLink("Add", destination: AddCategoryView()))
-        
-        Button {
-            vm.deleteAllData()
-        } label: {
-            Text("Delete All")
+            .navigationTitle("Expenses Tracker 💸")
+            .navigationBarItems(
+                leading: EditButton(),
+                trailing: NavigationLink("Add", destination: AddCategoryView()))
+            
+            Button {
+                vm.deleteAllData()
+            } label: {
+                Text("Delete All")
+            }
         }
     }
 }
