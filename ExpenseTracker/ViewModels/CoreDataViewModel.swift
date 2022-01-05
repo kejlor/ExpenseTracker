@@ -24,16 +24,9 @@ class CoreDataViewModel: ObservableObject {
         }
     }
     
-    @Published var costs: [Double] = [] {
-        didSet {
-            save()
-        }
-    }
-    
     init() {
         getCategories()
         getExpenses()
-        getAllCosts()
     }
     
     func getCategories() {
@@ -135,19 +128,5 @@ class CoreDataViewModel: ObservableObject {
     
     func save() {
         self.manager.save()
-    }
-    
-    func getAllCosts() {
-        for expense in expenses {
-            costs.append(expense.money)
-        }
-    }
-    
-    func returnCostsValue() -> Double {
-        var moneySpent = 0.0
-        for cost in costs {
-            moneySpent += cost
-        }
-        return moneySpent
     }
 }

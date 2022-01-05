@@ -23,7 +23,6 @@
 		E9EDBB582784923700013554 /* ExpenseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9EDBB572784923700013554 /* ExpenseView.swift */; };
 		E9EDBB5A278496DA00013554 /* ExpenseDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9EDBB59278496DA00013554 /* ExpenseDetailView.swift */; };
 		E9EDBB5F2784CACB00013554 /* CategoryDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9EDBB5E2784CACB00013554 /* CategoryDetailView.swift */; };
-		E9EDBB622784D77400013554 /* DataView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9EDBB612784D77400013554 /* DataView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -44,7 +43,6 @@
 		E9EDBB572784923700013554 /* ExpenseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpenseView.swift; sourceTree = "<group>"; };
 		E9EDBB59278496DA00013554 /* ExpenseDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpenseDetailView.swift; sourceTree = "<group>"; };
 		E9EDBB5E2784CACB00013554 /* CategoryDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryDetailView.swift; sourceTree = "<group>"; };
-		E9EDBB612784D77400013554 /* DataView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -109,7 +107,6 @@
 				E95C329D27847F01007AC000 /* EditExpenseView.swift */,
 				E9EDBB59278496DA00013554 /* ExpenseDetailView.swift */,
 				E9EDBB5E2784CACB00013554 /* CategoryDetailView.swift */,
-				E9EDBB612784D77400013554 /* DataView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -223,7 +220,6 @@
 				E96151442780F823000EA00E /* ExpenseTrackerApp.swift in Sources */,
 				E95C329A27847EEB007AC000 /* AddExpenseView.swift in Sources */,
 				E961515E2781E159000EA00E /* CoreDataManager.swift in Sources */,
-				E9EDBB622784D77400013554 /* DataView.swift in Sources */,
 				E9EDBB5F2784CACB00013554 /* CategoryDetailView.swift in Sources */,
 				E96151502780F824000EA00E /* ExpenseTracker.xcdatamodeld in Sources */,
 				E95C329C27847EF7007AC000 /* EditCategoryView.swift in Sources */,
