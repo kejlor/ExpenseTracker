@@ -26,5 +26,6 @@ struct ExpenseView_Previews: PreviewProvider {
     static var expense = ExpenseEntity()
     static var previews: some View {
         ExpenseView(expense: expense)
+            .environmentObject(CoreDataViewModel())
     }
 }
