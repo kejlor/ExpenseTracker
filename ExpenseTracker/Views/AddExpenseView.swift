@@ -39,6 +39,9 @@ struct AddExpenseView: View {
                 Text("Save")
             }
         }
+        .onAppear {
+            selectedCategory = vm.categories[0]
+        }
     }
 }
 
