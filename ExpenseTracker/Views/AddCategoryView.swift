@@ -11,6 +11,7 @@ struct AddCategoryView: View {
     
     @EnvironmentObject var vm: CoreDataViewModel
     @State private var textFieldText = ""
+    @Binding var isAddingCategory: Bool
     
     var body: some View {
         VStack {
@@ -18,6 +19,8 @@ struct AddCategoryView: View {
             TextField("Write category description here...", text: $textFieldText)
             Button {
                 vm.addCategory(title: textFieldText)
+                vm.getCategories()
+                isAddingCategory.toggle()
             } label: {
                 Text("Add")
             }
@@ -27,6 +30,6 @@ struct AddCategoryView: View {
 
 struct AddCategoryView_Previews: PreviewProvider {
     static var previews: some View {
-        AddCategoryView()
+        AddCategoryView(isAddingCategory: .constant(true))
     }
 }
