@@ -14,6 +14,7 @@ struct AddExpenseView: View {
     @State private var moneyTextField = 0.0
     @State private var selectedDate = Date()
     @State private var selectedCategory = CategoryEntity()
+    @Binding var isAddingExpense: Bool
     
     var body: some View {
         VStack {
@@ -32,8 +33,10 @@ struct AddExpenseView: View {
             }
             Button {
                 vm.addExpense(title: titleTextField, money: moneyTextField, date: selectedDate, category: selectedCategory)
+                vm.getExpenses()
+                isAddingExpense.toggle()
             } label: {
-                Text("Add new expense")
+                Text("Save")
             }
         }
     }
@@ -41,6 +44,6 @@ struct AddExpenseView: View {
 
 struct AddExpenseView_Previews: PreviewProvider {
     static var previews: some View {
-        AddExpenseView()
+        AddExpenseView(isAddingExpense: .constant(true))
     }
 }
