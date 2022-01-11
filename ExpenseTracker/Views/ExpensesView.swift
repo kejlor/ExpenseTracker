@@ -10,6 +10,8 @@ import SwiftUI
 struct ExpensesView: View {
     
     @EnvironmentObject var vm: CoreDataViewModel
+    @State private var isAddingCategory = false
+    @State private var isAddingExpense = false
     
     var body: some View {
         VStack {
@@ -35,7 +37,10 @@ struct ExpensesView: View {
             .navigationTitle("Expenses Tracker 💸")
             .navigationBarItems(
                 leading: EditButton(),
-                trailing: NavigationLink("Add", destination: AddCategoryView()))
+                trailing: NavigationLink("Add category", destination: AddCategoryView(isAddingCategory: $isAddingCategory), isActive: $isAddingCategory))
+            
+            
+            NavigationLink("Add expense", destination: AddExpenseView(isAddingExpense: $isAddingExpense), isActive: $isAddingExpense)
             
             Button {
                 vm.deleteAllData()
